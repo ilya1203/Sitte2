@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{%  load static %}
+<html>
+	<head>
+		<title>home</title>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' 'width=device-width, inital-scale=1'>
+		<link rel="shortcut icon" href="{% static 'zz.png' %}" type="image/png"/>
+	</head>
+	<body>
+		<!-- navigation <p>Поиск</p>-->
+		<nav>
+			<table width=100%>
+				<tr>
+					
+					<td width='33%'><p>Home</p></td>
+					<td width='33%'><p>Rubrics</p>
+					<table class='sm'>
+						{% for r in rubric %}
+							<tr>
+								<td><p><a href='{{r.pk}}' >{{r.name}}</a></p>
+								</td>
+							</tr>
+						{% endfor %}
+					</table>
+					
+					
+					</td>
+					<td width='33%'><p> Other </p>
+							<table class='sm'>
+							<tr>
+								<td><p>about</p>
+								<div>This is the test page</div></td>
+							</tr>
+							<tr>
+								<td><p>links</p>
+								<div><a href='https://vk.com/ad_mini_str_a_tor'>vk.com</a></br>
+								<a href='#'>ilya.sharov.0217@gmail.com</a>
+								</div></td>
+							</tr>
+							<tr>
+								<td><p> another projects</p><div>
+								<p><a href='http://elizarevfx.pythonanywhere.com/news/'>ElizarevFx</a></p>
+								</div></td>
+							</tr>
+							</table>
+					</td>
+				</tr>
+			</table>
+		</nav>
+		
+		<!-- body--->
+		
+		<table class='body'>
+			<tr>
+			{% for nn in nns %}   <!--begin-->
+				{%if nn.title == 'begin' %}
+				<td>
+					
+				</td>
+				{%else%}
+				<td>
+					<h2  id='title'>{{nn.title}}</h2>
+					<hr size=3 color='rgb(255, 197, 0)'>
+					{%if nn.title != srr %}
+					{% with s='' %}
+					<p>{% for i in nn.content %}
+						{% if i == '/' %}
+							{{s|cut:" "}}
+							{{s}}
+							{{ s|default:"" }}
+							<br/>
+						{% else %}
+							{{ s|add:i }}
+						{% endif %}
+						{% endfor %}
+						{{s}}
+					{% endwith %}
+					</p>
+					{% endif %}
+					{% if nn.photo %}
+						<img src="{{MEDIA_URL}}{{nn.photo.url}}" width=100px>
+					{% endif %}
+				</td>
+				{% endif %}
+			</tr>
+			{% endfor %}<!--end-->
+		</table>
+		
+	<!-- footer-->
+	<footer>
+	<hr>
+	<p></p>
+	
+	</footer>
+		
+	</body>
+		
+	
+	
+	<style>
+		body{background: url({% static 'bg.PNG' %});}
+		a{text-decoration:none; color: black}
+		a:hover{text-decoration: underline; color: #0F0F0F}
+		
+		nav img{src:'zz.png'}
+		nav {background: rgba(156, 130, 48, 1 ); border-radius: 10px;  margin:-1%;padding: 1%; font-family: cursive; font-size: 100%; text-align: center }
+		nav table tr td:hover{background: rgba(166, 140, 58, 0.5 ); box-shadow:inset 0 5px 10px rgba(0,0,0,0.5);transition: .3s ease-in-out; }
+		nav table tr td{border-radius: 10px}
+		nav table tr td:hover > img{filter: invert(100%); }
+		nav table tr td:hover > p{filter: invert(100%)}
+		nav .sm{position: absolute; transform: scaleY(0); content: ""; clear: both; text-align: right; width: 28%;background: rgba(166, 140, 58, 0.5 );  border-radius: 10px}
+		nav td:hover > .sm{transform: scaleY(1); transition: .3s ease-in-out;}
+		nav td .sm td:hover{background: rgba(166, 140, 58, 0.8 );transition: .3s ease-in-out; }
+		nav div{transform: scaleY(0); position:absolute}
+		nav td .sm td:hover > div{transform: scaleY(1); transition: .2s ease-in-out; position: static; color: white; }
+		nav input{font-size: 150%; font-family: cursive; text-align: center; background:rgba(156, 130, 48, 1 ); border: none}
+		
+		.body{margin-left: 13%; width: 65%; background: rgb(255, 185, 0); margin-top: 1%; border-radius: 0 0 5px 5px; cursor: crosshair; height: 200px; overflow: scroll}
+		.body hr{background: rgb(255, 197, 0) }
+		.body td{border-radius:5px;box-shadow: inset 0 10px 10px rgba(0,0,0,0.1),inset 0 -10px 10px rgba(0,0,0,0.1)}
+		.body h2:hover{text-shadow:10px 10px 10px rgba(0,0,0,0.1);transition: .3s ease-in-out; }
+		
+
+		footer a{ text-decoration:none; color: black}
+		footer p{text-align:right;}
+	</style>
+</html>
