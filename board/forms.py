@@ -5,5 +5,5 @@ from .models import Cont
 class ContForm(ModelForm):
     class Meta:
         model = Cont
-        fileds = ('title', 'textContent')
+        fields = ('title', 'textContent')
 # Create your views here.
