@@ -1,30 +1,27 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 
-from .models import Cont, Rubric
+
 from .forms import ContForm
+from .models import Comments
 
-class ContCreateView(CreateView):
-    template_name = 'board/index.html'
-    form_class = ContForm
-    success_url = reverse_lazy('index')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        x = {'conf': 'adds'}
-        context['rubric'] = 'index'
-        cc2 = {**context, **x} 
-        return cc2
 
-def index(request):
-    cont = Cont.objects.order_by('-published')
-    context = {'cont': cont}
-    return render(request, 'board/index.html', context)
+def index(request, lang):
+    comm = Comments.objects.all()
+    if request.POST:
+        c = Comments()
+        if ContForm(request.POST).is_valid:
+            c.Name = request.POST['Name']
+            c.Text = request.POST['Text']
+            for i in comm:
+                if c.Text == i.Text and c.Name == i.Name:
+                    break
+            else:
+                c.save()
+    return render(request, 'board/newDesign.html', {'lang':lang, 'form':ContForm, 'comm':comm})
 
-def by_conf(request, rubric_id):
-    cont = Cont.objects.order_by('-published')
-    
-    context = {'cont': cont, 'conf': rubric_id}
-    return render(request, 'board/index.html', context)
-# Create your views here.
+
+def about(request, lang, conf):
+    return render(request, 'board/about.html', {'lang':lang, 'conf': conf})

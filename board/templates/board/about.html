@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<title>About {{conf}}</title>
+		<link rel="shortcut icon" href="{% static 'img/icon.PNG' %}" type="image/png"/>
+		<meta name='viewport' content='width=device-width,inital-scale=1'>
+	</head>
+	<body>
+		<nav>
+		<table>
+			<tr>
+			{% if lang == 'en'%}
+				<td><p><a href='{% url "index" lang %}'>Home</a></p></td>
+				<td><p>About</p>
+					<table class='sm'>
+						<tr><td><p><a href='{% url "about" lang "me" %}'>About me</a></p></td></tr>
+						<tr><td><p><a href='{% url "about" lang "Py" %}'>About Python</a></p></td></tr>
+						<tr><td><p><a href='{% url "about" lang "Django" %}'>About Django</a></p></td></tr>
+					</table>
+				</td>
+				<td><p>Another projects</p>
+					<table class='sm'>
+						<tr><td><p><a href='https://elizarevfx.pythonanywhere.com/news/' target='blank'>Web-Site "ElizarevFx"</a></p></td></tr>
+						<tr><td><p><a href='http://saintlymotion.pythonanywhere.com/sainty/' target='blank'>Web-Site "Saintly"</a></p></td></tr>
+						<tr><td><p><a href='{% url "about" lang "Logo" %}'>Printed Logos</a></p></td></tr>
+					</table>
+				</td>
+			{% else %}
+				<td><p><a href='{% url "index" lang %}'>Главная</a></p></td>
+				<td><p>Информация</p>
+					<table class='sm'>
+						<tr><td><p><a href='{% url "about" lang "me" %}'>Обо мне</a></p></td></tr>
+						<tr><td><p><a href='{% url "about" lang "Py" %}'>О Python</a></p></td></tr>
+						<tr><td><p><a href='{% url "about" lang "Django" %}'>О Django</a></p></td></tr>
+					</table>
+				</td>
+				<td><p>Другие проекты</p>
+					<table class='sm'>
+						<tr><td><p><a href='https://elizarevfx.pythonanywhere.com/news/' target='blank'>Сайт "ElizarevFx"</a></p></td></tr>
+						<tr><td><p><a href='http://saintlymotion.pythonanywhere.com/sainty/' target='blank'>Сайт"Saintly"</a></p></td></tr>
+						<tr><td><p><a href='{% url "about" lang "Logo" %}'>Нарисованные логотипы</a></p></td></tr>
+					</table>
+				</td>
+			{% endif %}
+			</tr>
+		</table>
+		</nav>
+		 <!--  Отделительная часть  -->
+					<table>
+						<tr><td><p>IlyaChe</p></td></tr>
+					</table>
+		<!-- body -->
+		
+		<div class='body'>
+		{% if conf == 'Django' %}
+		{% if lang == 'en' %}
+			<div class='EngBlock'>
+				<h1>About Django</h1>
+				<h3>Django is a high-level Python web framework that enables rapid development of secure and maintainable websites. Built by experienced developers, Django takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel.</h3>
+				<img src="{% static  'img/Django.PNG'  %}" width='50%'/>
+				
+			</div>
+		{% else %}
+			<div class='EngBlock'>
+				<h1>О библиотеке Django</h1>
+				<h3>Django - это веб-инфраструктура Python высокого уровня, которая позволяет быстро разрабатывать безопасные и поддерживаемые веб-сайты. Созданный опытными разработчиками, Django берет на себя большую часть хлопот веб-разработки, поэтому вы можете сосредоточиться на написании своего приложения без необходимости изобретать велосипед. </h3>
+				<img src="{% static  'img/Django.PNG'  %}" width='50%'/>
+				
+			</div>
+		{% endif  %}
+		{% endif %}
+		{% if conf == 'Py' %}
+		{% if lang == 'en' %}
+			<div class='EngBlock'>
+				<h1>About Python</h1>
+				<h3>Python is a programming language that lets you work more quickly and integrate your systems more effectively.</h3>
+				<img src="{% static  'img/Py.PNG'  %}" width='75%'/>
+				<h3>I have been programming in python for over two years. Here is what I learned:</h3>
+				<table class='skills'>
+					<tr><td><h2>Clear Python</h2></td><td><h3>For easy consols programs</h3></td></tr>
+					<tr><td><h2>Python with Tkinter</h2></td><td><h3>Program with GUI</h3></td></tr>
+					<tr><td><h2>Python with Django</h2></td><td><h3>Web-Apps, this and a lot of sites </h3></td></tr>
+				</table>
+			</div>
+		{% else %}
+			<div class='EngBlock'>
+				<h1>Про Python</h1>
+				<h3>Python - это язык программирования, который позволяет вам работать быстрее и эффективнее интегрировать в ваши системы.</h3>
+				<img src="{% static  'img/Py.PNG'  %}" width='75%'/>
+				<h3>Я программирую на python более двух лет. Вот чему я научился:</h3>
+				<table class='skills'>
+					<tr><td><h2>Чистый Python</h2></td><td><h3>Для простых консольных программ</h3></td></tr>
+					<tr><td><h2>Python с библиотекой Tkinter</h2></td><td><h3>Программы с графическим интерфейсом</h3></td></tr>
+					<tr><td><h2>Python с библиотекой Django</h2></td><td><h3>Этот и другие сайты </h3></td></tr>
+				</table>
+			</div>
+		{% endif  %}
+		{% endif %}
+		{% if conf == 'me' %}
+		{% if lang == 'en' %}
+			<div class='EngBlock'>
+				<h1>Glad to see you on my site!</h1>
+				<h3>
+					<strong>M</strong>y name is Eliot.</br>
+					<strong>I</strong> have been programming for over two years.<br/>
+					<strong>I</strong> am pleased to perform various tasks, both light and complex.<br/>
+					<strong>I</strong> am involved in creating sites in Django with Python, there is a database on the site.<br/>
+					<strong>I</strong> will do everything efficiently, stylishly and modernly, in general, all according to the stylish trends of the modern of world.<br/>
+					<strong>I</strong> look forward to your suggestions!
+				</h3>
+			</div>
+		{% else %}
+			<div class='EngBlock'>
+				<h1>Добро пожаловать на мой сайт!</h1>
+				<h3>
+					Меня завут Илья.</br>
+					Я программирую более двух лет.<br/>
+					Я готов брать различные задания: как простые, так и сложные.<br/>
+					Я свободно использую Python,  занимаюсь созданием сайтов на Django(на сайте подключена база данных). <br/>Занимаюсь созданием логотипы к названиям.<br/>
+					Я сделаю все качественно, стильно и современно, в общем, все в соответствии со стильными тенденциями современного мира.<br/>
+					
+				</h3>
+			</div>
+		{% endif  %}
+		{% endif %}
+		{% if conf == 'Logo'%}
+			{% if lang == 'en' %}
+			<table class='Logos'>
+				<tr>
+					<td><img src='{% static "img/ilyaChe.PNG" %}' width=30%/><hr/></td>
+					<td><p>This is my Logo</p></td>
+				</tr>
+				<tr>
+					<td><img src='{% static "img/Logo.PNG" %}' width=45%/>
+					<img  src='{% static "img/Zar.PNG" %}' width=30%/><hr/></td>
+					<td><p>I draw this logo for ElizarefFx</p></td>
+				</tr>
+				<tr>
+					<td><img src='{% static "img/snt.PNG" %}' width=30%/><hr/></td>
+					<td><p>Logo for Saintly</p></td>
+				</tr>
+			</table>
+			{% else %}
+			<table class='Logos'>
+				<tr>
+					<td><img src='{% static "img/ilyaChe.PNG" %}' width=30%/><hr/></td>
+					<td><p>Мой логотип</p></td>
+				</tr>
+				<tr>
+					<td><img  src='{% static "img/Logo.PNG" %}' width=45%/>
+					<img  src='{% static "img/Zar.PNG" %}' width=30%/>
+					<hr/></td>
+					<td><p>Эти логотипы были разработаны для ElizarevFx</p></td>
+				</tr>
+				<tr>
+					<td><img src='{% static "img/snt.PNG" %}' width=30%/><hr/></td>
+					<td><p>Логотип для Saintly</p></td>
+				</tr>
+				<tr>
+					<td><img src='{% static "img/5zp.PNG" %}' width=30%/><hr/></td>
+					<td><p>Логотип для 5zp</p></td>
+				</tr>
+			</table>
+			{% endif %}
+			
+		{% endif %}
+		</div>
+		
+		<!-- end of body -->
+		
+		`
+		
+		
+		<footer>
+			<hr color='#161f21'>
+			<p>Design by 5zp
+			<a href='{% url "about" "ru" conf %}'><img src='{% static "img/Ru.png" %}' align='right' ></a>
+			<a href='{% url "about" "en" conf %}'><img src='{% static "img/En.png" %}' align='right'/></a>
+			</p>
+		</footer>
+	</body>
+	<style>
+		@font-face{
+		font-family: link;
+		src: url('{% static "font/link.ttf" %}')}
+		html{background-color: #cdbba3; font-family: link }
+		a{text-decoration: none; color: inherit}
+		
+		nav{width: 100%; position: fixed; left:0; right: 0; top: 0}
+		nav table{width: 100%; text-align: center; background-color: #eb8d35; font-size: 120% }
+		nav td{width: 33%}
+		nav td:hover > p{text-decoration: underline; color: white;  transition: .2s ease-in-out}
+		nav .sm{transform: translateY(-100%) scaleY(0);z-index: -2; position: absolute; translate: 0 -100%; width: 34%; border-radius: 4px}
+		nav td:hover > .sm{transform: translateY(0) scaleY(1); position: fixed; transition: .5s ease-in-out;}
+		
+		.body{width: 80%; background: #dedfe4; border-radius: 6px; margin-left: 15%}
+		.body h1{text-align: center;}
+		.body h3{font-size: 175%; color: #161f21; text-align: justify}
+		.body:hover > hr{margin-left: 50%}
+		.body img{align: center}
+		.body .s{positoin: absolute; transform: scaleX(0)}
+		.body .Logos tr:hover >  td .s{transform: scaleX(1); position: static; transition: .2s ease-in-out;}
+		.body .Logos tr:hover > td .f{position: absolute; transform: scaleX(0); transition: .2s ease-in-out}
+		.body .Logos p{font-size: 200%}
+		.body .Logos td{width: 35%;}
+		.body .skills{border: 2px solid black; width: 100%}
+		.body .skills td{width: 50%; border: 2px solid black}
+		
+		@media (orientation: landscape)
+		{
+		
+		footer img{width: 3%; margin: 3px }
+		}
+		@media (orientation: portrait)
+		{
+		.body img{width: 100%}
+		footer img{width: 10%; margin: 2px }
+		}
+		
+		footer{ bottom: 0; width: 99%; text-align: center}
+		
+		footer img:hover{border-radius: 10px; transition: .2s ease-in-out}
+	</style>
+</html>

@@ -1,9 +1,8 @@
 from django.urls import path
 
-from .views import index, by_conf, ContCreateView
+from .views import index, about
 
 urlpatterns = [
-               path('adds/', ContCreateView.as_view(), name='add'),
-	path('<str:rubric_id>/', by_conf, name='by_conf'),
-               path('', index, name='index'),
+               path('<str:lang>/<str:conf>', about, name='about'),
+	path('<str:lang>/', index, name='index'),
     ]
