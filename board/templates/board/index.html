@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<title>ilyaChe</title>
+		<link rel="shortcut icon" href="{% static 'img/icon.PNG' %}" type="image/png"/>
+		<meta name='viewport' content='width=device-width,inital-scale=1'>
+	</head>
+	<body>
+		<nav>
+			<div class='link'>
+			<table>
+				<tr>
+				<td><a href='https://vk.com/ad_mini_str_a_tor' target='blanck'><img src='{% static "img/vk.PNG" %}'  width='50%'></a></td>
+				<td><a href='mailto:ilya.sharov.0217@gmail.com'><img src='{% static "img/mail.PNG" %}'  width='50%'></a></td>
+				<td><a href='https://www.facebook.com/profile.php?id=100052108064452' target='blanck'><img src='{% static "img/FaceBook4.PNG" %}'  width='50%'></a></td>
+				</tr>
+			</table>
+			</div>
+			<table class='menu'><tr>
+				<td><a href='{% url "index"  lang "home" %}'><img src='{% static "img/ilyaChe.PNG" %}' width=25% /></a></td>
+				{% if lang == 'ru' %}
+				<td><p><a href='{% url "index" lang "aboutME" %}'>Обо мне</a></p></td>
+				<td><p><a href='{% url "index" lang "other"%}'>Другие проекты</a></p></td>
+				{% else %}
+				<td><p><a href='{% url "index" lang "aboutME" %}'>About me</a></p></td>
+				<td><p><a href='{% url "index" lang "other"%}'>Other projects</a></p></td>
+				{% endif %}
+			</tr></table>
+			<p class='pho' align=center>&#8650;</p>
+		</nav>
+		
+		<div  class='body'>
+			{% if conf == 'home' %}
+				{% if lang == 'en' %}
+					<div class='InfBlock'>
+						<h1>Glad to see you on my site!</h1>
+						<h3>
+							<strong>M</strong>y name is Eliot.</br>
+							<strong>I</strong> have been programming for over two years.<br/>
+							<strong>I</strong> draw logo if you need it<br/>
+							<strong>Now</strong> you on ny web-site and you can:
+							<ul>
+							<li> Leave a comment</li>
+							<li> View information about me</li>
+							<li> View other works</li>
+							</ul>
+						</h3>
+					</div>
+				{% else %}
+					<div class='InfBlock'>
+						<h1>Добро пожаловать!</h1>
+						<h3>
+							Меня завут Илья.</br>
+							Я Занимаюсь разработкой на языке Python.<br/>
+							Сейчас вы находитесь на моём сайте, где можете:  
+							<ul>
+							<li> Оставить комментарий</li>
+							<li> Посмотреть информацию обо мне</li>
+							<li> Посмотреть другие работы</li>
+							</ul>
+						</h3>
+					</div>
+				{% endif  %}
+			{% endif %}
+			{% if conf == 'aboutME' %}
+				{% if lang == 'ru' %}
+				<table class='aboutME'>
+				<tr>
+					<td class='right'><h1>Web</h1>
+					<div class='hide'>
+						<p>Я занимаюсь разработкой сайтов на<br>
+						фреймворке Django, применяя такой язык программирования как Python.</p>
+						<p>В работе я использую:
+						<ul>
+						<li>Python для основной логики сайта</li>
+						<li>Html/Html5</li>
+						<li>CSS3</li>
+						<li>SQL в качестве базы данных на сайте</li>
+						</ul>
+					</div>
+					</td>
+					<td class='left'><h1>Программирование</h1>
+					<div class='hide'>
+						<p>Я программирую на python более трёх лет.<br>
+						Готов браться за задачи любой сложности.</p>
+						<p>Знаком с такими библиотеками как:
+						<ul>
+						<li>BfSoup - для парсеров</li>
+						<li>Openpuxl - для работы с электронными таблицами </li>
+						<li>Tkinter - библиотека для создания прстых программ с графическим интерфейсов</li>
+						
+						</ul>
+					</div>
+					</td>
+				</tr>
+				</table>
+				{% else %}
+				<table class='aboutME'>
+				<tr>
+					<td class='right'><h1>Web</h1>
+					<div class='hide'>
+						<p>
+								I am developing sites on <br>
+								Django framework and using a Python programming language.</p>
+						<p>I use:
+						<ul>
+						<li>Python for the main site logic</li>
+						<li>Html/Html5</li>
+						<li>CSS3</li>
+						<li>SQL </li>
+						</ul>
+					</div>
+					</td>
+					<td class='left'><h1>Programming</h1>
+					<div class='hide'>
+						<p>I have been programming in python for over  three years.<br>
+						I am pleased to perform various tasks, both light and complex.</p>
+						<p>I familiar with libraries like:
+						<ul>
+						<li>BfSoup - for parsers</li>
+						<li>Openpuxl - for work with xlsx </li>
+						<li>Tkinter - Program with GUI</li>
+						
+						</ul>
+					</div>
+					</td>
+				</tr>
+				</table>
+				{% endif %}
+			{% endif %}
+			{% if conf == 'other' %}
+				{% if lang == 'ru'%}
+				<h1 class='mark'><a href='{% url "index" lang "OtherSite"%}'>Сайты</a></h1>
+				<h1 class='mark'><a href='{% url "index" lang "OtherLogos"%}'>Логотипы</a></h1>
+				{% else %}
+				<h1 class='mark'><a href='{% url "index" lang "OtherSite"%}'>Web-Site</a></h1>
+				<h1 class='mark'><a href='{% url "index" lang "OtherLogos"%}'>Logos</a></h1>
+				{% endif %}
+			{% endif %}
+			{% if conf == 'OtherSite' %}
+				{% if lang == 'ru'%}
+					<table class='works'>
+						<tr>
+							<td><img src='{% static "img/sa.PNG" %}' width='80%'/></td>
+							<td><img src='{% static "img/el.PNG" %}' width='80%'/></td>
+						</tr>
+						<tr>
+							<td><p>Сайт под ключ с адаптивной вёрсткой и админ-панелью<br><a href='http://saintlymotion.pythonanywhere.com/sainty/' target='blanck'>ссылка</a></p></td>
+							<td><p>Сайт под ключ с адаптивной вёрсткой и админ-панелью<br><a href='http://elizarevfx.pythonanywhere.com/news/' target='blanck'>ссылка</a></p></td>
+						</tr>
+					</table>
+				{% else %}
+				<table class='works'>
+						<tr>
+							<td><img src='{% static "img/sa.PNG" %}' width='80%'/></td>
+							<td><img src='{% static "img/el.PNG" %}' width='80%'/></td>
+						</tr>
+						<tr>
+							<td><p>Turnkey website with adaptive layout and admin panel<br><a href='http://saintlymotion.pythonanywhere.com/sainty/' target='blanck'>link</a></p></td>
+							<td><p>Turnkey website with adaptive layout and admin panel<br><a href='http://elizarevfx.pythonanywhere.com/news/' target='blanck'>link</a></p></td>
+						</tr>
+					</table>
+				{% endif %}
+			{% endif %}
+				{% if conf == 'OtherLogos' %}
+						{% if lang == 'en' %}
+							<table class='worksLog'>
+								<tr>
+									<td><img src='{% static "img/ilyaChe.PNG" %}' width=30%/></td>
+									<td><img src='{% static "img/snt.PNG" %}' width=30%/></td>
+								</tr>
+								<tr>
+									<td><img  src='{% static "img/Logo.PNG" %}' width=45%/>
+									</td><td><img  src='{% static "img/Zar.PNG" %}' width=30%/>
+									</td>
+									
+								</tr>
+							</table>
+							{% else %}
+							<table class='worksLog'>
+								<tr>
+									<td><img src='{% static "img/ilyaChe.PNG" %}' width=30%/></td>
+									<td><img src='{% static "img/snt.PNG" %}' width=30%/></td>
+								</tr>
+								<tr>
+									<td><img  src='{% static "img/Logo.PNG" %}' width=45%/>
+									</td><td><img  src='{% static "img/Zar.PNG" %}' width=30%/>
+									</td>
+									
+								</tr>
+							</table>
+							{% endif %}
+				{% endif %}
+			
+		</div>
+		
+		<div class='mail'>
+			<form method='POST'>
+						{% csrf_token %}
+						{{ form.as_p }}
+						{% if lang ==  'en' %}
+						<p><input class='inp' type='submit' value='Publish'></p>
+						{% else %}
+						<p><input class='inp' type='submit' value='Отправить'></p>
+						{% endif %}
+			</form>
+		</div>
+		
+		<footer>
+			{% if lang == 'ru' %}
+				<p class='hide'><a href='{% url "index"  "ru"  conf %}'>Русский</a><br><a href='{% url "index"  "en" conf %}'>English</a></p>
+				<p><a href='#'>Ru</a></p>
+			{% else %}
+				<p class='hide'><a href='{% url "index"  "ru" conf %}'>Русский</a><br><a href='{% url "index"  "en" conf %}'>English</a></p>
+				<p><a href='#'>En</a></p>
+			{% endif%}
+		</footer>
+	</body>
+	<style>
+	@font-face{
+	font-family: link;
+	src: url('{% static "font/link.ttf" %}')}
+	html{background-color: #900c3f; font-family: link }
+	a{text-decoration: none; color: inherit}
+	@media (orientation: landscape)
+	{
+	nav{width: 100%; position: fixed; top: 0; left: 0; right: 0}
+	nav p{font-size: 150%; color: #ffc300}
+	nav p:hover{color: #ff5733; transition: .3s ease-in-out}
+	nav:hover{background: #581845;transition: .4s ease-in-out}
+	nav:hover > .menu{margin-top: 2%; background-color:#581845; transition: all .5s .1s ease-in-out}
+	nav .menu{ width: 50%}
+	nav .menu td{width: 25%}
+	nav .link{position: absolute; top: 0; right: 0; width: 15%; border: 2px dotted black; border-radius: 0 0 0 10px}
+	.body .InfBlock ul{margin-left: 30%; position: absolute; width: 100%; margin-top: -1%}
+	.mail:hover{width: 15%;border-radius: 10px 0 0 50px;height: 50%; background: #acacac; transition: .2s ease-in-out }
+	.body .aboutME .hide{transform: translateY(-25%) scaleX(0);width: 45%; font-size: 120%; position: absolute}
+	.pho{display: none; position: absolute}
+	}
+	
+	@media (orientation: portrait)
+	{
+	nav{position: fixed; top: 0; left: 0; right: 0; margin-top: -40%; background: #581845;font-size: 130%}
+	nav .link{border: 2px solid black}
+	nav .menu{width: 100%}
+	nav .menu td{width: 33%}
+	nav .menu td img{width: 60%}
+	nav:hover{margin-top: 0; transition: .4s ease-in-out}
+	.body .InfBlock ul{ margin-top: -1%}
+	.mail:hover{width: 66%;border-radius: 10px 0 0 50px;height: 50%; background: #acacac; transition: .2s ease-in-out }
+	.body .aboutME .hide{transform: translateY(-25%) scaleX(0);width: 100%; font-size: 100%; position: absolute; left:0}
+	.body .aboutME .hide p{margin-bottom: 0; margin-top: 0}
+	.body .works{margin-top: 10%}
+	.body .works td{border: 1px solid black}
+	.body .works img{width: 110%}
+	}
+	.body{position: fixed; top: 20%; left: 9%; right: 9%; font-size: 150%;}
+	.body .InfBlock{}
+	
+	.body .aboutME{width: 90%; }
+	
+	.body .aboutME td{width: 50%;}
+	.body .aboutME td:hover > .hide{transform: translateY(0) scaleX(1); transition: .3s ease-in-out}
+	.body .aboutME .right{text-align: right; color:#ff5733 }
+	.body .aboutME .right:hover{background: linear-gradient(to left, #581845, rgba(0,0,0,0)); transition: background .2s ease-in-out}
+	.body .aboutME .right ul{text-align: left}
+	.body .aboutME .left:hover{background: linear-gradient(to right, #581845, rgba(0,0,0,0)); transition: background .2s ease-in-out}
+	
+	.body .mark:hover{color:#ffc300; transition: .2s ease-in-out}
+	.body .works tr{overflow: scroll; width: 100%; }
+	.body .works img:hover{width: 100%; transition: .3s ease-in-out}
+	.body .works td{overflow: hidden}
+	
+	footer{position: fixed; right: 10px; bottom: 0; font-size: 150%}
+	footer a:hover{color:#ff5733; transition: .2s ease-in-out}
+	footer:hover > .hide{transform: scaleY(1); right: 100%; bottom: 9%; background: #581845;border-radius: 5px; transition: .2s ease-in-out}
+	footer .hide{transform: scaleY(0); position: absolute}
+	
+	.mail{position: fixed; right: 0; height: 40%; width: 5%; top: 30%; background: #F00d3f; border-radius: 200px 0 0 200px}
+	.mail form{display: none}
+	.mail:hover > form{display: block; transition: .2s ease-in-out}
+	<!--
+	#581845
+	#900c3f
+	#c70039
+	#ff5733
+	#ffc300
+	-->
+	::-webkit-scrollbar {
+		  width: 1px;
+		}
+
+		::-webkit-scrollbar-track {
+		  background: #000; 
+		}
+	
+		::-webkit-scrollbar-thumb {
+		  background: #fff; 
+		  border-radius: 10px;
+		  height: 10px;
+
+		::-webkit-scrollbar-thumb:hover {
+		  background: #555; 
+	</style>
+</html>

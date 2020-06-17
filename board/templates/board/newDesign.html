@@ -14,16 +14,16 @@
 				<td><p><a href='{% url "index" lang %}'>Home</a></p></td>
 				<td><p>About</p>
 					<table class='sm'>
-						<tr><td><p><a href='{% url "about" lang "me" %}'>About me</a></p></td></tr>
-						<tr><td><p><a href='{% url "about" lang "Py" %}'>About Python</a></p></td></tr>
-						<tr><td><p><a href='{% url "about" lang "Django" %}'>About Django</a></p></td></tr>
+						<tr><td><p><a href='{% url "about" lang "me" %}'>About me</a></p></td>
+						<td><p><a href='{% url "about" lang "Py" %}'>About Python</a></p></td>
+						<td><p><a href='{% url "about" lang "Django" %}'>About Django</a></p></td></tr>
 					</table>
 				</td>
 				<td><p>Another projects</p>
 					<table class='sm'>
-						<tr><td><p><a href='https://elizarevfx.pythonanywhere.com/news/' target='blank'>Web-Site "ElizarevFx"</a></p></td></tr>
-						<tr><td><p><a href='http://saintlymotion.pythonanywhere.com/sainty/' target='blank'>Web-Site "Saintly"</a></p></td></tr>
-						<tr><td><p><a href='{% url "about" lang "Logo" %}'>Printed Logos</a></p></td></tr>
+						<tr><td><p><a href='https://elizarevfx.pythonanywhere.com/news/' target='blank'>Web-Site "ElizarevFx"</a></p></td>
+						<td><p><a href='http://saintlymotion.pythonanywhere.com/sainty/' target='blank'>Web-Site "Saintly"</a></p></td>
+						<td><p><a href='{% url "about" lang "Logo" %}'>Printed Logos</a></p></td></tr>
 					</table>
 				</td>
 			{% else %}
@@ -88,12 +88,16 @@
 				<form method='POST'>
 						{% csrf_token %}
 						{{ form.as_p }}
+						{% if lang ==  'en' %}
 						<p><input class='inp' type='submit' value='Publish'></p>
+						{% else %}
+						<p><input class='inp' type='submit' value='Отправить'></p>
+						{% endif %}
 					</form>
 				<table class='link'>
 				<tr>
 				<td><a href='https://vk.com/ad_mini_str_a_tor' target='blanck'><img src='{% static "img/vk.PNG" %}'  width='50%'></a></td>
-				<td><a href='https://www.google.com/search?q=ilya.sharov.0217@gmail.com&source=lmns&bih=657&biw=1366&safe=active&hl=ru&ved=2ahUKEwjHvafbx-_pAhUU6KYKHVmiAK0Q_AUoAHoECAEQAA' target='blank'><img src='{% static "img/mail.PNG" %}'  width='50%'></a></td>
+				<td><a href='mailto:ilya.sharov.0217@gmail.com'><img src='{% static "img/mail.PNG" %}'  width='50%'></a></td>
 				<td><a href='https://www.facebook.com/profile.php?id=100052108064452' target='blanck'><img src='{% static "img/FaceBook4.PNG" %}'  width='50%'></a></td>
 				</tr>
 				</table>
@@ -142,7 +146,8 @@
 		nav td{width: 33%}
 		nav td:hover > p{text-decoration: underline; color: white;  transition: .2s ease-in-out}
 		nav .sm{transform: translateY(-100%) scaleY(0);z-index: -2; position: absolute; translate: 0 -100%; width: 34%; border-radius: 4px}
-		nav td:hover > .sm{transform: translateY(0) scaleY(1); position: fixed; transition: .5s ease-in-out;}
+		
+		
 		
 		.body{width: 80%; background: #dedfe4; border-radius: 6px; margin-left: 15%}
 		.body h1{text-align: center;}
@@ -150,18 +155,22 @@
 		
 		@media (orientation: landscape)
 		{
-		.Left-Block{background-color: #dedfe4; position: fixed; left: 0; top: 15%; height: 60%; width: 13%; border-radius: 0 10px 10px 0}
+		nav td:hover > .sm{transform: translateY(0) scaleY(1); position: fixed; transition: .5s ease-in-out;}
+		.Left-Block{background-color: #dedfe4; position: fixed; left: 0; top: 15%; height: 65%; width: 13%; border-radius: 0 10px 10px 0}
 		.Left-Block img{margin: 12%}
+		.inp{font-family: link; font-size: 150%; background: rgba(235, 141, 53, 0.6); border: 3px solid rgba(235, 141, 53, 1); border-radius: 10px; margin-left: 15%}
+		.inp:hover{ background: rgba(235, 141, 53, 1);  border-radius: 5px; transition: .2s ease-in-out;}
 		footer img{width: 3%; margin: 3px }
 		}
 		@media (orientation: portrait)
 		{
-		.Left-Block{background-color: #dedfe4;  width: 100%; border-radius: 10px}
+		nav td:hover > .sm{transform: translateY(0) scaleY(1); position: fixed; left: 0; width: 100% ; background-color: rgba(235, 141, 53, 0.8) ;transition: .5s ease-in-out;}
+		.Left-Block{background-color: #dedfe4;  width: 90%; margin-left: 8%; border-radius: 10px}
 		.Left-Block .lg{position: fixed; left: 3px; top: 15%; width: 15% }
 		.Left-Block .hd{margin-left: 12%; border-radius: 10px}
+		.inp{font-family: link; font-size: 150%; background: rgba(235, 141, 53, 0.6); border: 3px solid rgba(235, 141, 53, 1); border-radius: 10px; width: 90%; }
 		footer img{width: 10%; margin: 2px }
 		}
-		
 		
 		.link img:hover{width: 75%; transition: .3s ease-in-out}
 		
@@ -171,8 +180,26 @@
 		.Comment .preson .Text{font-size: 150%}
 		.Comment .preson .Name{font-size: 125%}
 		
-		footer{ bottom: 0; width: 99%; text-align: center}
+		footer{background-color: #6e583a; position: fixed; left: 0; right: 0; bottom: 0; width: 100%; text-align: center}
 		
 		footer img:hover{border-radius: 10px; transition: .2s ease-in-out}
+		
+		
+		::-webkit-scrollbar {
+		  width: 1px;
+		}
+
+		::-webkit-scrollbar-track {
+		  background: #000; 
+		}
+	
+		::-webkit-scrollbar-thumb {
+		  background: #fff; 
+		  border-radius: 10px;
+		  height: 10px;
+
+		::-webkit-scrollbar-thumb:hover {
+		  background: #555; 
+		}
 	</style>
 </html>

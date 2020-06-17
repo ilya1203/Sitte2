@@ -8,7 +8,7 @@ from .models import Comments
 
 
 
-def index(request, lang):
+def index(request, lang, conf):
     comm = Comments.objects.all()
     if request.POST:
         c = Comments()
@@ -20,8 +20,6 @@ def index(request, lang):
                     break
             else:
                 c.save()
-    return render(request, 'board/newDesign.html', {'lang':lang, 'form':ContForm, 'comm':comm})
+    return render(request, 'board/index.html', {'lang':lang, 'form':ContForm, 'comm':comm, 'conf': conf})
 
 
-def about(request, lang, conf):
-    return render(request, 'board/about.html', {'lang':lang, 'conf': conf})

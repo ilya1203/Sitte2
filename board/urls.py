@@ -1,8 +1,7 @@
 from django.urls import path
 
-from .views import index, about
+from .views import index
 
 urlpatterns = [
-               path('<str:lang>/<str:conf>', about, name='about'),
-	path('<str:lang>/', index, name='index'),
+	path('<str:lang>/<str:conf>/', index, name='index'),
     ]
