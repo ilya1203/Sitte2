@@ -7,6 +7,7 @@
 		<meta name='viewport' content='width=device-width,inital-scale=1'>
 	</head>
 	<body>
+		
 		<nav>
 			<div class='link'>
 			<table>
@@ -14,6 +15,7 @@
 				<td><a href='https://vk.com/ad_mini_str_a_tor' target='blanck'><img src='{% static "img/vk.png" %}'  width='50%'></a></td>
 				<td><a href='mailto:ilya.sharov.0217@gmail.com'><img src='{% static "img/mail.png" %}'  width='50%'></a></td>
 				<td><a href='https://www.facebook.com/profile.php?id=100052108064452' target='blanck'><img src='{% static "img/FaceBook4.png" %}'  width='50%'></a></td>
+				<td><a href='https://t.me/ilyaCheProg' target='blanck'><img src='{% static "img/tg.png" %}'  width='50%'></a></td>
 				</tr>
 			</table>
 			</div>
@@ -27,7 +29,7 @@
 				<td><p><a href='{% url "index" lang "other"%}'>Other projects</a></p></td>
 				{% endif %}
 			</tr></table>
-			<p class='pho' align=center>&#8650;</p>
+			<p class='pho' align=center><hr width=10%/></p>
 		</nav>
 		
 		<div  class='body'>
@@ -67,7 +69,7 @@
 				{% if lang == 'ru' %}
 				<table class='aboutME'>
 				<tr>
-					<td class='right'><h1>Web</h1>
+					<td class='right'><h1><a href='#'>Web</a></h1>
 					<div class='hide'>
 						<p>Я занимаюсь разработкой сайтов на<br>
 						фреймворке Django, применяя такой язык программирования как Python.</p>
@@ -80,7 +82,7 @@
 						</ul>
 					</div>
 					</td>
-					<td class='left'><h1>Программирование</h1>
+					<td class='left'><h1><a href='#'>Программирование</a></h1>
 					<div class='hide'>
 						<p>Я программирую на python более трёх лет.<br>
 						Готов браться за задачи любой сложности.</p>
@@ -98,7 +100,7 @@
 				{% else %}
 				<table class='aboutME'>
 				<tr>
-					<td class='right'><h1>Web</h1>
+					<td class='right'><h1><a href='#'>Web</a></h1>
 					<div class='hide'>
 						<p>
 								I am developing sites on <br>
@@ -112,7 +114,7 @@
 						</ul>
 					</div>
 					</td>
-					<td class='left'><h1>Programming</h1>
+					<td class='left'><h1><a href='#'>Programming</a></h1>
 					<div class='hide'>
 						<p>I have been programming in python for over  three years.<br>
 						I am pleased to perform various tasks, both light and complex.</p>
@@ -207,7 +209,10 @@
 			</form>
 		</div>
 		
+		
+		
 		<footer>
+		
 			{% if lang == 'ru' %}
 				<p class='hide'><a href='{% url "index"  "ru"  conf %}'>Русский</a><br><a href='{% url "index"  "en" conf %}'>English</a></p>
 				<p><a href='#'>Ru</a></p>
@@ -221,18 +226,18 @@
 	@font-face{
 	font-family: link;
 	src: url('{% static "font/link.ttf" %}')}
-	html{background-color: #900c3f; font-family: link }
+	html{background-color: #eb8b35; font-family: link }
 	a{text-decoration: none; color: inherit}
 	@media (orientation: landscape)
 	{
 	nav{width: 100%; position: fixed; top: 0; left: 0; right: 0}
-	nav p{font-size: 150%; color: #ffc300}
+	nav p{font-size: 150%; color: #0a0a0a}
 	nav p:hover{color: #ff5733; transition: .3s ease-in-out}
-	nav:hover{background: #581845;transition: .4s ease-in-out}
-	nav:hover > .menu{margin-top: 2%; background-color:#581845; transition: all .5s .1s ease-in-out}
+	nav:hover{background: #deb76f;transition: .4s ease-in-out}
+	nav:hover > .menu{margin-top: 2%; background-color:#deb76f; transition: all .5s .1s ease-in-out}
 	nav .menu{ width: 50%}
 	nav .menu td{width: 25%}
-	nav .link{position: absolute; top: 0; right: 0; width: 15%; border: 2px dotted black; border-radius: 0 0 0 10px}
+	nav .link{position: absolute; top: 0; right: 0; width: 20%; border: 2px dotted black; border-radius: 0 0 0 10px}
 	.body .InfBlock ul{margin-left: 30%; position: absolute; width: 100%; margin-top: -1%}
 	.mail:hover{width: 15%;border-radius: 10px 0 0 50px;height: 50%; background: #acacac; transition: .2s ease-in-out }
 	.body .aboutME .hide{transform: translateY(-25%) scaleX(0);width: 45%; font-size: 120%; position: absolute}
@@ -241,8 +246,9 @@
 	
 	@media (orientation: portrait)
 	{
-	nav{position: fixed; top: 0; left: 0; right: 0; margin-top: -40%; background: #581845;font-size: 130%}
-	nav .link{border: 2px solid black}
+	.lap{position: absolute; display: none}
+	nav{position: fixed; top: 0; left: 0; right: 0; margin-top: -40%; background: #deb76f;font-size: 130%}
+	nav .link{align-content: stretch}
 	nav .menu{width: 100%}
 	nav .menu td{width: 33%}
 	nav .menu td img{width: 60%}
@@ -255,15 +261,16 @@
 	.body .works td{border: 1px solid black}
 	.body .works img{width: 110%}
 	}
-	.body{position: fixed; top: 20%; left: 9%; right: 9%; font-size: 150%;}
+	.body{position: fixed; top: 20%; left: 9%; right: 9%; font-size: 150%; overflow-y: scrollY}
 	.body .InfBlock{}
 	
 	.body .aboutME{width: 90%; }
 	
 	.body .aboutME td{width: 50%;}
 	.body .aboutME td:hover > .hide{transform: translateY(0) scaleX(1); transition: .3s ease-in-out}
-	.body .aboutME .right{text-align: right; color:#ff5733 }
-	.body .aboutME .right:hover{background: linear-gradient(to left, #581845, rgba(0,0,0,0)); transition: background .2s ease-in-out}
+	.body .aboutME .right{text-align: right; color:#a43604 }
+	.body .aboutME .right .hide{color: black }
+	.body .aboutME .right:hover{background: linear-gradient(to left, #dedfe4, rgba(0,0,0,0)); transition: background .2s ease-in-out}
 	.body .aboutME .right ul{text-align: left}
 	.body .aboutME .left:hover{background: linear-gradient(to right, #581845, rgba(0,0,0,0)); transition: background .2s ease-in-out}
 	
@@ -274,12 +281,12 @@
 	
 	footer{position: fixed; right: 10px; bottom: 0; font-size: 150%}
 	footer a:hover{color:#ff5733; transition: .2s ease-in-out}
-	footer:hover > .hide{transform: scaleY(1); right: 100%; bottom: 9%; background: #581845;border-radius: 5px; transition: .2s ease-in-out}
+	footer:hover > .hide{transform: scaleY(1); right: 100%; bottom: 9%; background: #ffc300;border-radius: 5px; transition: .2s ease-in-out}
 	footer .hide{transform: scaleY(0); position: absolute}
 	
-	.mail{position: fixed; right: 0; height: 40%; width: 5%; top: 30%; background: #F00d3f; border-radius: 200px 0 0 200px}
-	.mail form{display: none}
-	.mail:hover > form{display: block; transition: .2s ease-in-out}
+	.mail{position: fixed; right: 0; height: 40%; width: 5%; top: 30%;border: 2px solid #ff5733; background: #deb76f; border-radius: 200px 0 0 200px}
+	.mail form{transform: scaleY(0)}
+	.mail:hover > form{transform: scaleY(1); transition: .2s ease-in-out}
 	<!--
 	#581845
 	#900c3f
@@ -287,20 +294,23 @@
 	#ff5733
 	#ffc300
 	-->
+	
+	
 	::-webkit-scrollbar {
 		  width: 1px;
 		}
 
-		::-webkit-scrollbar-track {
+	::-webkit-scrollbar-track {
 		  background: #000; 
 		}
 	
-		::-webkit-scrollbar-thumb {
+	::-webkit-scrollbar-thumb {
 		  background: #fff; 
 		  border-radius: 10px;
 		  height: 10px;
+		  }
 
-		::-webkit-scrollbar-thumb:hover {
-		  background: #555; 
+	::-webkit-scrollbar-thumb:hover {
+		  background: #555; }
 	</style>
 </html>
