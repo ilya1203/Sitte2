@@ -7,8 +7,14 @@ from .forms import ContForm
 from .models import Comments
 
 
-
 def index(request, lang, conf):
+    f = open('visit.txt', 'r')
+    v = int(f.read())
+    v += 1
+    f.close()
+    f = open('visit.txt', 'w')
+    f.write(str(v))
+    f.close()
     comm = Comments.objects.all()
     if request.POST:
         c = Comments()
@@ -20,6 +26,6 @@ def index(request, lang, conf):
                     break
             else:
                 c.save()
-    return render(request, 'board/index.html', {'lang':lang, 'form':ContForm, 'comm':comm, 'conf': conf})
+    return render(request, 'board/index.html', {'vis': v,'lang':lang, 'form':ContForm, 'comm':comm, 'conf': conf})
 
 

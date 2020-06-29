@@ -7,7 +7,7 @@
 		<meta name='viewport' content='width=device-width,inital-scale=1'>
 	</head>
 	<body>
-		
+
 		<nav>
 			<div class='link'>
 			<table>
@@ -31,7 +31,7 @@
 			</tr></table>
 			<p class='pho' align=center><hr width=10%/></p>
 		</nav>
-		
+
 		<div  class='body'>
 			{% if conf == 'home' %}
 				{% if lang == 'en' %}
@@ -53,9 +53,9 @@
 					<div class='InfBlock'>
 						<h1>Добро пожаловать!</h1>
 						<h3>
-							Меня завут Илья.</br>
+							Меня зовут Илья.</br>
 							Я Занимаюсь разработкой на языке Python.<br/>
-							Сейчас вы находитесь на моём сайте, где можете:  
+							Сейчас вы находитесь на моём сайте, где можете:
 							<ul>
 							<li> Оставить комментарий</li>
 							<li> Посмотреть информацию обо мне</li>
@@ -78,6 +78,7 @@
 						<li>Python для основной логики сайта</li>
 						<li>Html/Html5</li>
 						<li>CSS3</li>
+						<li>JS/jQuery</li>
 						<li>SQL в качестве базы данных на сайте</li>
 						</ul>
 					</div>
@@ -91,7 +92,7 @@
 						<li>BfSoup - для парсеров</li>
 						<li>Openpuxl - для работы с электронными таблицами </li>
 						<li>Tkinter - библиотека для создания прстых программ с графическим интерфейсов</li>
-						
+
 						</ul>
 					</div>
 					</td>
@@ -110,6 +111,7 @@
 						<li>Python for the main site logic</li>
 						<li>Html/Html5</li>
 						<li>CSS3</li>
+						<li>JS/jQuery</li>
 						<li>SQL </li>
 						</ul>
 					</div>
@@ -123,7 +125,7 @@
 						<li>BfSoup - for parsers</li>
 						<li>Openpuxl - for work with xlsx </li>
 						<li>Tkinter - Program with GUI</li>
-						
+
 						</ul>
 					</div>
 					</td>
@@ -134,10 +136,12 @@
 			{% if conf == 'other' %}
 				{% if lang == 'ru'%}
 				<h1 class='mark'><a href='{% url "index" lang "OtherSite"%}'>Сайты</a></h1>
-				<h1 class='mark'><a href='{% url "index" lang "OtherLogos"%}'>Логотипы</a></h1>
+			<!--	<h1 class='mark'><a href='{% url "index" lang "OtherLogos"%}'>Логотипы</a></h1>-->
+				<h1 class='mark'><a href='https://drive.google.com/file/d/1dDqJd9JStBy9Ff3ZN_--5HWz0hEaHofs/view?usp=sharing'>Программы</a></h1>
 				{% else %}
 				<h1 class='mark'><a href='{% url "index" lang "OtherSite"%}'>Web-Site</a></h1>
-				<h1 class='mark'><a href='{% url "index" lang "OtherLogos"%}'>Logos</a></h1>
+			<!--	<h1 class='mark'><a href='{% url "index" lang "OtherLogos"%}'>Logos</a></h1>-->
+				<h1 class='mark'><a href='https://drive.google.com/file/d/1dDqJd9JStBy9Ff3ZN_--5HWz0hEaHofs/view?usp=sharing'>Programms</a></h1>
 				{% endif %}
 			{% endif %}
 			{% if conf == 'OtherSite' %}
@@ -173,10 +177,10 @@
 									<td><img src='{% static "img/snt.png" %}' width=30%/></td>
 								</tr>
 								<tr>
-									<td><img  src='{% static "img/Logo.png" %}' width=45%/>
-									</td><td><img  src='{% static "img/Zar.png" %}' width=30%/>
+									<td><img  src='{% static "img/logo.png" %}' width=45%/>
+									</td><td><img  src='{% static "img/zar.png" %}' width=30%/>
 									</td>
-									
+
 								</tr>
 							</table>
 							{% else %}
@@ -186,17 +190,17 @@
 									<td><img src='{% static "img/snt.png" %}' width=30%/></td>
 								</tr>
 								<tr>
-									<td><img  src='{% static "img/Logo.png" %}' width=45%/>
-									</td><td><img  src='{% static "img/Zar.png" %}' width=30%/>
+									<td><img  src='{% static "img/logo.png" %}' width=45%/>
+									</td><td><img  src='{% static "img/zar.png" %}' width=30%/>
 									</td>
-									
+
 								</tr>
 							</table>
 							{% endif %}
 				{% endif %}
-			
+
 		</div>
-		
+
 		<div class='mail'>
 			<form method='POST'>
 						{% csrf_token %}
@@ -208,11 +212,17 @@
 						{% endif %}
 			</form>
 		</div>
-		
-		
-		
+
+		<div class='visit'>
+				{% if lang == 'ru' %}
+					<p>Посетителей: {{vis}}</p>
+				{% else %}
+					<p>Visiters: {{vis}}</p>
+				{% endif %}
+		</div>
+
 		<footer>
-		
+			
 			{% if lang == 'ru' %}
 				<p class='hide'><a href='{% url "index"  "ru"  conf %}'>Русский</a><br><a href='{% url "index"  "en" conf %}'>English</a></p>
 				<p><a href='#'>Ru</a></p>
@@ -220,6 +230,8 @@
 				<p class='hide'><a href='{% url "index"  "ru" conf %}'>Русский</a><br><a href='{% url "index"  "en" conf %}'>English</a></p>
 				<p><a href='#'>En</a></p>
 			{% endif%}
+			<div class='crl'/>
+			
 		</footer>
 	</body>
 	<style>
@@ -238,12 +250,14 @@
 	nav .menu{ width: 50%}
 	nav .menu td{width: 25%}
 	nav .link{position: absolute; top: 0; right: 0; width: 20%; border: 2px dotted black; border-radius: 0 0 0 10px}
-	.body .InfBlock ul{margin-left: 30%; position: absolute; width: 100%; margin-top: -1%}
+	.body .InfBlock ul{margin-left: 30%; position: absolute; width: 100%; margin-top: 0}
 	.mail:hover{width: 15%;border-radius: 10px 0 0 50px;height: 50%; background: #acacac; transition: .2s ease-in-out }
 	.body .aboutME .hide{transform: translateY(-25%) scaleX(0);width: 45%; font-size: 120%; position: absolute}
 	.pho{display: none; position: absolute}
+	footer:hover > .crl{position: fixed; right: -17%; top: 70%;border: 2px solid black; border-radius: 100%; padding: 15%;z-index: -999; transition: .1s ease-in-out}
+	footer .crl{position: fixed; right: -5%; top: 85%;border: 2px solid black; border-radius: 100%; padding: 5%;z-index: -999; transition: .1s ease-in-out}
 	}
-	
+
 	@media (orientation: portrait)
 	{
 	.lap{position: absolute; display: none}
@@ -260,12 +274,15 @@
 	.body .works{margin-top: 10%}
 	.body .works td{border: 1px solid black}
 	.body .works img{width: 110%}
+	footer:hover > .crl{position: fixed; right: -22%; top: 80%;border: 2px solid black; border-radius: 100%; padding: 30%;z-index: -999; transition: .1s ease-in-out}
+	footer .crl{position: fixed; right: -6%; top: 88.5%;border: 2px solid black; border-radius: 100%; padding: 10%;z-index: -999; transition: .1s ease-in-out}
+
 	}
 	.body{position: fixed; top: 20%; left: 9%; right: 9%; font-size: 150%; overflow-y: scrollY}
 	.body .InfBlock{}
-	
+
 	.body .aboutME{width: 90%; }
-	
+
 	.body .aboutME td{width: 50%;}
 	.body .aboutME td:hover > .hide{transform: translateY(0) scaleX(1); transition: .3s ease-in-out}
 	.body .aboutME .right{text-align: right; color:#a43604 }
@@ -273,16 +290,18 @@
 	.body .aboutME .right:hover{background: linear-gradient(to left, #dedfe4, rgba(0,0,0,0)); transition: background .2s ease-in-out}
 	.body .aboutME .right ul{text-align: left}
 	.body .aboutME .left:hover{background: linear-gradient(to right, #581845, rgba(0,0,0,0)); transition: background .2s ease-in-out}
-	
+
 	.body .mark:hover{color:#ffc300; transition: .2s ease-in-out}
 	.body .works tr{overflow: scroll; width: 100%; }
 	.body .works img:hover{width: 100%; transition: .3s ease-in-out}
 	.body .works td{overflow: hidden}
-	
-	footer{position: fixed; right: 10px; bottom: 0; font-size: 150%}
+
+	footer{position: fixed; right: 10px; bottom: 0; font-size: 150%; }
 	footer a:hover{color:#ff5733; transition: .2s ease-in-out}
-	footer:hover > .hide{transform: scaleY(1); right: 100%; bottom: 9%; background: #ffc300;border-radius: 5px; transition: .2s ease-in-out}
+	footer:hover > .hide{transform: scaleY(1); right: 100%; bottom: 9%;border-radius: 5px; transition: .2s ease-in-out}
 	footer .hide{transform: scaleY(0); position: absolute}
+
+	.visit{position: absolute; left: 0; bottom: 0;}
 	
 	.mail{position: fixed; right: 0; height: 40%; width: 5%; top: 30%;border: 2px solid #ff5733; background: #deb76f; border-radius: 200px 0 0 200px}
 	.mail form{transform: scaleY(0)}
@@ -295,17 +314,17 @@
 	#ffc300
 	-->
 	
-	
+
 	::-webkit-scrollbar {
 		  width: 1px;
 		}
 
 	::-webkit-scrollbar-track {
-		  background: #000; 
+		  background: #000;
 		}
-	
+
 	::-webkit-scrollbar-thumb {
-		  background: #fff; 
+		  background: #fff;
 		  border-radius: 10px;
 		  height: 10px;
 		  }
