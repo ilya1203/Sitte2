@@ -8,13 +8,7 @@ from .models import Comments
 
 
 def index(request, lang, conf):
-    f = open('visit.txt', 'r')
-    v = int(f.read())
-    v += 1
-    f.close()
-    f = open('visit.txt', 'w')
-    f.write(str(v))
-    f.close()
+    v = 17
     comm = Comments.objects.all()
     if request.POST:
         c = Comments()
