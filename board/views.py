@@ -1,25 +1,25 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
-from django.urls import reverse_lazy
+
+# Create your views here.
+from .models import Works
+
+def index(request, lang):
+
+    return render(request, 'index.html', {'lang':lang})
 
 
-from .forms import ContForm
-from .models import Comments
-
-
-def index(request, lang, conf):
-    v = 17
-    comm = Comments.objects.all()
-    if request.POST:
-        c = Comments()
-        if ContForm(request.POST).is_valid:
-            c.Name = request.POST['Name']
-            c.Text = request.POST['Text']
-            for i in comm:
-                if c.Text == i.Text and c.Name == i.Name:
-                    break
+def selectors(request, lang, select):
+    
+    if select == 'Works':
+        obj = Works.objects.all()
+        for b in range(len(obj)):
+            if lang == 'ru':
+                obj[b].title = str(obj[b].title).split('|')[0]
+                obj[b].comment = str(obj[b].comment).split('|')[0]
             else:
-                c.save()
-    return render(request, 'board/index.html', {'vis': v,'lang':lang, 'form':ContForm, 'comm':comm, 'conf': conf})
-
-
+                obj[b].title = str(obj[b].title).split('|')[-1]
+                obj[b].comment = str(obj[b].comment).split('|')[-1]
+    else:
+        obj = []
+    
+    return render(request, 'select.html', {'lang':lang, 'selc': select, 'obj':obj})

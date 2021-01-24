@@ -1,0 +1,101 @@
+@font-face{
+			font-family: link;
+			src: url("font/link2.otf")
+			}
+		body{ background-color: #f0f0f0; font-family: link}	
+		
+		a{text-decoration: none; color: inherit}
+@media (orientation: landscape)
+{		
+	.nav{color: white; background-color: black; position: fixed; top: 0; left: 0; right: 0; padding: 10px; display: flex; flex-direction: row; z-index: 2;}
+	.nav p:hover{text-shadow:  0 0 20px white; transition: .2s ease-in-out}
+	.nav div{width: 33%; align: center}
+	.nav div img{margin-left: 42%; width: 16%; filter: invert(1)}
+	.nav .contacts{text-align: right}
+	
+	.nav .menu hr{width: 5px; margin-left: 0; color: black; transition: .3s ease-in-out; position: absolute}
+	.nav .sub_menu{z-index: 1; width: 100%; left:0; position: absolute; transform: scaleY(0); margin-top: -15px; display: flex; flex-direction: row; text-align: center; font-size: 125%; transition: .3s ease-in-out;}
+	.nav .menu:hover > .sub_menu{transform: scaleY(1); transition: .2s ease-in-out; margin-top: 20px; background-color: #0f0f0f; }
+	.nav .menu:hover > h1 .hr-30{width: 15%; transition: .2s ease-in-out; }
+	.nav .menu:hover > h1 .hr-20{width: 10%; transition: .2s ease-in-out; }
+	.nav .menu:hover > h1 .hr-10{width: 5%; transition: .2s ease-in-out; }
+	
+
+	
+	.main-block{ margin-top: 100px; }
+	
+	.main-block .cercl-one{width: 66%; height: 350px; position: absolute; z-index: -10; background-color: #003580; right: 0; overflow: hidden }
+	.main-block .cercl-one .message{display: flex; flex-direction: row; width: 100%}
+	.main-block .cercl-one{transition: .2s ease-in-out; color: white; text-shadow: 1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black}
+	.main-block .cercl-one h1{padding: 1%}
+	.main-block .cercl-one .rot-list li{transition: .2s ease-in-out;}
+	.main-block .cercl-one .rot-list li:hover{font-size: 110%; transition: .2s ease-in-out; cursor: pointer}
+	
+	.main-block .cercl-two{width: 34%; height: 370px; color: white; text-shadow: 1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black; margin-top: 250px; position: absolute; z-index: -10; display:flex; flex-direction: row; background-color: #631e1e; left: 0}
+	.main-block .cercl-two .rot-list{ background-color: #631e1e;}
+	.main-block .cercl-two h1{padding: 1%}
+	
+	@keyframes box {
+	 0% { margin-left: 0px; }	
+	 50% { margin-left: -100%; }
+	 100% { margin-left: -200%; }
+	}
+	
+		
+	.feed-back{position: fixed; bottom: 15px; right: 10px; border: 2px solid black; border-radius: 20px; font-size: 125%;}
+	.feed-back:hover{color:#0f0f0f; background: #f0f0f0; transition: .2s ease-in-out}
+	
+	.feedback{margin-top: 620px; height: 400px; position: absolute; left:0; right: 0; }
+	.feedback .sc_box{left:0; right: 0; background: #003580; width: 100% }
+	.feedback .sc_box h2{margin-top: 0; text-align: center; width: 100%; color: white; text-shadow: 1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black;}
+	.feedback form{width: 30%; margin-left: 35%; text-align: center; background:#631e1e; border-radius: 10px; }
+	.feedback form p{ margin-bottom: 0; font-size: 125%	}
+	.feedback form h2{ margin-bottom: 0; font-size: 200%;text-shadow: 1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black;	}
+	
+	
+	footer{position: absolute; margin-top: 1020px; left: 0; right: 0; color: white; background-color: black}
+	footer .info{width: 80%; margin-left: 20%; display: flex; flex-direction: row}
+	footer .info div{width: 20%}
+	
+	::-webkit-scrollbar {
+	  width: 10px;
+	  height: 10px;
+	  border-radius: 100%;
+	  background-color: black;
+	}
+	 
+	::-webkit-scrollbar-track {
+	  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	  background-color: black;
+	}
+	 
+	::-webkit-scrollbar-thumb {
+		height: 10%;	
+	  background-color: #0f0f0f;
+	}
+	
+}
+@media (orientation: portrait)
+{
+	.nav{color: black;  position: fixed; top: 0; left: 0; right: 0; padding: 10px; display: flex;  z-index: 2;}
+	.nav:hover{background-color: black; color: white;; transition: .2s ease-in-out}
+	.nav p:hover{text-shadow:  0 0 20px white; transition: .2s ease-in-out}
+	.nav div{width: 33%; align: center}
+	.nav div img{display: none; position: absolute}
+	.nav .contacts{text-align: right; margin-left: -1%; width: 50%}
+	
+	.nav .menu hr{width: 0; margin: 0; color: black; transition: .3s ease-in-out; position: absolute}
+	.nav .sub_menu{z-index: 1; width: 50%; left:0; position: absolute; transform: scaleY(0); margin-top: -30%;  text-align: center; display: block; font-size: 125%; transition: .1s ease-in-out;}
+	.nav .menu:hover > .sub_menu{transform: scaleY(1); transition: .2s ease-in-out;margin-top: 0;  background-color: #0f0f0f; }
+	.nav .menu:hover > h1 .hr-30{width: 25%; transition: .2s ease-in-out; }
+	.nav .menu:hover > h1 .hr-20{width: 10%; transition: .2s ease-in-out; }
+	.nav .menu:hover > h1 .hr-10{width: 5%; transition: .2s ease-in-out; }
+	
+	.main-block .cercl-one .message{display: none; position: absolute}
+	
+	
+	.main-block .cercl-two{width: 100px; height: 100px; background: black; position: absolute; top: 100px; left: ; animation: box 10s ease-in-out infinite}
+	
+	
+	.feed-back{position: absolute; display: none}
+}
